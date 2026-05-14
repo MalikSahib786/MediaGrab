@@ -1,0 +1,20 @@
+name = "mediagrab-worker"
+main = "download-worker.js"
+compatibility_date = "2024-01-01"
+
+# Worker configuration
+workers_dev = true
+route = ""
+zone_id = ""
+
+# Limits (free tier)
+# 100,000 requests per day
+# 10ms CPU time per request
+# 128 MB memory
+
+[env.production]
+name = "mediagrab-worker-prod"
+route = "api.yourdomain.com/*"
+
+[env.staging]
+name = "mediagrab-worker-staging"

@@ -1,4 +1,4 @@
-const API_URL = "https://mediagrab.gmalikhusnainsahib.workers.dev";
+const API_URL = "https://mediagrab.gmalikhusnainsahib.workers.dev/"; // Same domain for Pages + Functions
 
 let currentPlatform = null;
 
@@ -27,10 +27,11 @@ async function download() {
 
     document.getElementById("loading").classList.remove("hidden");
     document.getElementById("results").classList.add("hidden");
+    document.getElementById("error").classList.add("hidden");
 
     try {
         const response = await fetch(
-            `${API_URL}/api/download?url=${encodeURIComponent(url)}&platform=${currentPlatform}`
+            `/api/download?url=${encodeURIComponent(url)}&platform=${currentPlatform}`
         );
 
         const data = await response.json();
@@ -87,7 +88,6 @@ async function download() {
 
     } catch (err) {
         document.getElementById("loading").classList.add("hidden");
-
         document.getElementById("error").classList.remove("hidden");
         document.getElementById("errorMessage").innerText = err.message;
     }

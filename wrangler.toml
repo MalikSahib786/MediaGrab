@@ -15,4 +15,4 @@ name = "mediagrab-prod"
 route = "api.yourdomain.com/*"
 
 [env.staging]
-name = "mediagrab-worker-staging"
+name = "mediagrab-staging"
